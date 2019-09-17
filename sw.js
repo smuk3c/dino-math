@@ -26,23 +26,27 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-5ccde01c2d1c7532faf8.js"
+    "url": "webpack-runtime-6c0244b30da88436af7e.js"
   },
   {
     "url": "commons.d5ef0abb16ee382cea7f.css"
   },
   {
-    "url": "commons-da8a4d14a593357b176f.js"
+    "url": "commons-c0adffb4f208dd063a5a.js"
   },
   {
-    "url": "app-444fd289960e70928a5f.js"
+    "url": "app-3e66381fbc06d452ee61.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-2163ff53582ce3fe7b71.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "2bbf74ccb685d4b770381d070b95135d"
+    "revision": "098bf52160e4e38d9af302b707122b17"
+  },
+  {
+    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
+    "revision": "e0c959b7d9c9b684d8fdfd9c8d55bef7"
   },
   {
     "url": "manifest.webmanifest",
@@ -65,12 +69,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/dino-math`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-444fd289960e70928a5f.js`))) {
+  if (!resources || !(await caches.match(`/dino-math/app-3e66381fbc06d452ee61.js`))) {
     return await fetch(event.request)
   }
 
@@ -83,7 +87,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/dino-math/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
