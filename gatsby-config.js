@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Dino Math`,
+    description: `Simple game for kids, encouraging them to learn math.`,
+    author: `@smuk3c`,
   },
+  pathPrefix: "/dino-math",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
